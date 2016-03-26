@@ -1,0 +1,42 @@
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', 'Open Sans', 'Hiragino Sans GB', Arial, SimSun, sans-serif;
+  line-height: 1.6;
+}
+.mainbody {
+  width: 700px;
+  margin: 0 auto;
+  background: #FDFFFE;
+  border-top: 2px solid #ACC9D0;
+  border-bottom: 2px solid #ACC9D0;
+  border-left: 1px solid #EBEBEB;
+  border-right: 1px solid #EBEBEB;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+a {
+  text-decoration: none;
+}
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+
+/*# sourceMappingURL=registe.css.map */

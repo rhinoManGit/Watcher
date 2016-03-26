@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/base.css' />
+    <link rel='stylesheet' href='/css/login.css' />
+  </head>
+  <body>
+  <%- include common/head%>
+  <div class="mainbody">
+    <form class="J-loginForm" action="/deep_login" method="post">
+      <div class="wrapper">
+        <p>
+          <label>用户名：<input name="user_name" value=""  placeholder=""/></label>
+        </p>
+        <p>
+          <label>密&nbsp;&nbsp;&nbsp;码：<input type="password" name="pass_word" value="" placeholder=""/></label>
+        </p>
+        <p class="btn">
+          <a href="javascript:void(0);" class="J-submitBtn">登陆</a>
+          <a href="javascript:void(0);" class="J-resetBtn">重置</a>
+        </p>
+      </div>
+    </form>
+  </div>
+  <%- include common/foot%>
+  <script type="text/javascript" charset="UTF-8">
+    ;void function(){
+
+      var $form = $('.J-loginForm');
+
+      $('.J-submitBtn').on('click', function(){
+        $form.submit();
+      });
+
+      $('.J-resetBtn').on('click', function(){
+        $form[0].reset();
+      });
+
+    }();
+  </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/css/base.css' />
+  <link rel='stylesheet' href='/css/submit.css' />
+</head>
+<body>
+<%- include common/head%>
+<div class="mainbody">
+  <form class="J-form" action="/generateUrl" method="post">
+    <h4>输入自定义url</h4>
+    <p class="title">
+      <input name="user_url" value=""/>
+    </p>
+    <div class="content">
+      <span class="content_title" href="javascript:void(0);">输入模拟json</span>
+      <textarea name="user_content" value=""></textarea>
+      <a class="content_btn J-submit" href="javascript:void(0);">提交</a>
+    </div>
+  </form>
+</div>
+<%- include common/foot%>
+<script type="text/javascript" src="/js/business/submit.js"></script>
+</body>
+</html>

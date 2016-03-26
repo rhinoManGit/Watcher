@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8">
+    <title>前端站点</title>
+    <link rel='stylesheet' href='/css/base.css' />
+    <link rel='stylesheet' href='/css/index.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <%- include common/head%>
+  <div class="mainbody clear">
+   <div class="user_part">
+      <div class="user">
+        <a href="/user_info" class="tip">
+            <i>rhino</i>
+            <span>犀牛先生</span>
+        </a>
+        <p><a href="/update" class="setting" title="设置"></a></p>
+      </div>
+   </div>
+    <div class="tool_part">
+      <ul>
+        <li><a href="/submit">自定义URL</a></li>
+        <li><a href="/doc">发表文档</a></li>
+        <li><a href="/submit">自定义URL</a></li>
+        <li><a href="/doc">发表文档</a></li>
+      </ul>
+    </div>
+  </div>
+  <%- include common/foot%>
   </body>
 </html>
