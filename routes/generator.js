@@ -31,7 +31,7 @@ router.post('/', function(req, res){
 
         if(data){
             // 跳到成功页
-            res.render('success', {url: 'geturl/' + url});
+            res.render('success', {url: 'getcustomurl/' + url});
         }else{
             res.redirect('/submit');
         }

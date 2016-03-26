@@ -53,7 +53,7 @@ app.use(session({
 }));
 
 // 获取url
-app.get('/geturl/*', function(req, res, next){
+app.get('/getcustomurl/*', function(req, res, next){
 
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
