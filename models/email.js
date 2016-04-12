@@ -37,7 +37,8 @@ function sendEmail(cfg){
     }
 
     if(cfg.html){
-        mailOptions['html'] = cfg.html;
+        mailOptions['html'] = '<style>.container {position: relative;font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif !important;' +
+        'font-size: 14px !important;line-height: 2;color: #555 !important;background: #FFFFFF;}</style><div class="container">'+ cfg.html +'</div>';
     }
 
     transporter.sendMail(mailOptions, function(error, info){

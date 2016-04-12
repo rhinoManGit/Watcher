@@ -14,12 +14,10 @@ var sendEmail = require('../models/email');
 router.get('/', function(req, res){
 
     sendEmail({
-        to: 'wd14931@ly.com,xjh09835@ly.com',
+        to: 'wd14931@ly.com',//,xjh09835@ly.com
         topic: 'test',
-        html: '<h2>hello 姜丽华</h2><p>nice to meet you!</p>',
-        callback: function(){
-
-        }
+        html: '<h4>hello 姜丽华</h4><p>nice to meet you!</p><p><strong>属性</strong><br>所有HTML标签和属性都应该全部用小写，属性值用引号包裹。<br></p>',
+        callback: function(){}
     });
 });
 
