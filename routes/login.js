@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 var JDBC = require('../models/JDBC');
-var User = require('../models/user');
+var User = require('../models/User');
 
 /* GET home page */
 router.post('/', function(req, res){
@@ -15,9 +15,9 @@ router.post('/', function(req, res){
 
     var jdbc = new JDBC();
 
-    jdbc.find('FRONT_USER', {name: name}, function(stat, data){
+    jdbc.find('FRONT_USER', {NAME: name}, function(stat, data){
 
-        if(data && name === data.name && parseInt(password, 10) === parseInt(data.password, 10)){
+        if(data && name === data.NAME && password === data.PASSWORD){
             // 登陆成功
             req.session['user'] = data;
             // 跳到首页

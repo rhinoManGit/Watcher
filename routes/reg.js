@@ -3,7 +3,7 @@
  */
 
 var crypto = require('crypto'),
-    User = require('../models/user');
+    User = require('../models/User');
 
 app.post('/reg', function(req, res){
     var name = req.body.name,

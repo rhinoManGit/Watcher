@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 var JDBC = require('../models/JDBC');
-var User = require('../models/user');
+var User = require('../models/User');
 
 /* GET home page */
 router.get('/', function(req, res){

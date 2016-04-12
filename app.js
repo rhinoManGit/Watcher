@@ -9,18 +9,16 @@ var session = require('express-session');
 // local
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
 var loginView = require('./routes/login_view');
 var login = require('./routes/login');
-
 var doc = require('./routes/doc_view');
 var preview = require('./routes/preview_view');
 var transform = require('./routes/transform');
-
 var submit = require('./routes/submit');
 var generator = require('./routes/generator');
 var findUrl = require('./routes/findUrl');
 //var registe = require('./routes/reg');
+var sendEmail = require('./routes/email');
 
 var settings = require('./settings');
 var app = express();
@@ -47,7 +45,7 @@ app.use(cookieParser());
 app.use(session({
   secret: 'frontTeam',
   name: 'frontTeam_roby',
-  cookie: {maxAge: 60000 * 10},
+  cookie: {maxAge: 10 * 60 * 60 *1000},
   resave: false,
   saveUninitialized: true
 }));
@@ -58,12 +56,11 @@ app.get('/getcustomurl/*', function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-  res.header("X-Powered-By",' 3.2.1')
+  res.header("X-Powered-By",' 3.2.1');
   res.header("Content-Type", "application/json;charset=utf-8");
 
   findUrl(req, res, req.url);
 });
-
 
 // 首页
 app.use('/index', routes);
@@ -71,23 +68,16 @@ app.use('/index', routes);
 //app.use('/users', users);
 // 登陆
 app.use('/login', loginView);
+// 验证登陆
 app.use('/deep_login', login);
 // 注册
 //app.use('/registe', registe);
-
-/*
-* markdown 写文档
-*
-* */
+// markdown 写文档
 app.use('/doc', doc);
-app.use('/doc/transformation', transform);
+//app.use('/doc/transformation', transform);
+// 预览
 app.use('/doc/preview', preview);
-
-/*
-*
-* 生成url
-*
-* */
+// 生成url
 app.use('/submit', submit);
 // url生成器
 app.use('/generateUrl', generator);
@@ -95,6 +85,8 @@ app.use('/generateUrl', generator);
 app.use('/success', function(req, res, next) {
   res.render('success');
 });
+// 发邮件
+app.use('/email', sendEmail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -125,6 +117,15 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+var log4js = require('log4js');
+
+log4js.configure({
+  appenders: [
+    { type: 'console' },
+    { type: 'file', filename: 'logs/log.log', category: 'log' }
+  ]
 });
 
 
